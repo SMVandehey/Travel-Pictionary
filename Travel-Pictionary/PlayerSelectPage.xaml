@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Travel_Pictionary.PlayerSelectPage"
+             Title="Players">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16">
+            <Label Text="How many players are playing?" FontSize="28" HorizontalTextAlignment="Center" />
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
+                <Button Text="2p" Clicked="OnPlayerCountClicked" CommandParameter="2" />
+                <Button Text="3p" Clicked="OnPlayerCountClicked" CommandParameter="3" />
+                <Button Text="4p" Clicked="OnPlayerCountClicked" CommandParameter="4" />
+            </HorizontalStackLayout>
+            <Entry x:Name="Player1Entry" Placeholder="Player 1 name" TextChanged="OnNameChanged" />
+            <Entry x:Name="Player2Entry" Placeholder="Player 2 name" TextChanged="OnNameChanged" />
+            <Entry x:Name="Player3Entry" Placeholder="Player 3 name" IsVisible="False" TextChanged="OnNameChanged" />
+            <Entry x:Name="Player4Entry" Placeholder="Player 4 name" IsVisible="False" TextChanged="OnNameChanged" />
+            <Button x:Name="ReadyButton" Text="READY" IsEnabled="False" Clicked="OnReadyClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
