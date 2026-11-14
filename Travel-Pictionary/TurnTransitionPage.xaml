@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travel_Pictionary.TurnTransitionPage"
              Title="Pass the Canvas">
-    <Grid Padding="24">
+    <Grid Padding="24" BackgroundColor="{StaticResource GamePaper}">
         <VerticalStackLayout VerticalOptions="Center" Spacing="20">
-            <Label x:Name="MessageLabel" FontSize="30" HorizontalTextAlignment="Center" />
-            <Label x:Name="CountdownLabel" FontSize="24" HorizontalTextAlignment="Center" />
+            <Label x:Name="MessageLabel" Style="{StaticResource GameHeading}" FontSize="30" HorizontalTextAlignment="Center" />
+            <Label x:Name="CountdownLabel" Style="{StaticResource GameBody}" FontSize="24" HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

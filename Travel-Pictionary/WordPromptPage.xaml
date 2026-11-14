@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travel_Pictionary.WordPromptPage"
              Title="Your Word">
-    <Grid Padding="24">
+    <Grid Padding="24" BackgroundColor="{StaticResource GamePaper}">
         <VerticalStackLayout VerticalOptions="Center" Spacing="20">
-            <Label x:Name="PromptLabel" FontSize="32" HorizontalTextAlignment="Center" />
-            <Label x:Name="CountdownLabel" FontSize="24" HorizontalTextAlignment="Center" />
+            <Label x:Name="PromptLabel" Style="{StaticResource GameHeading}" FontSize="32" HorizontalTextAlignment="Center" />
+            <Label x:Name="CountdownLabel" Style="{StaticResource GameBody}" FontSize="24" HorizontalTextAlignment="Center" />
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

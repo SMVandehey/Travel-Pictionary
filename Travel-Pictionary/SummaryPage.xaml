@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travel_Pictionary.SummaryPage"
              Title="Summary">
-    <ScrollView>
+    <ScrollView BackgroundColor="{StaticResource GamePaper}">
         <VerticalStackLayout Padding="24" Spacing="16">
-            <Label Text="Game Summary" FontSize="32" HorizontalTextAlignment="Center" />
+            <Label Text="Game Summary" Style="{StaticResource GameHeading}" FontSize="32" HorizontalTextAlignment="Center" />
             <VerticalStackLayout x:Name="ScoresLayout" Spacing="8" />
             <Label x:Name="WinnerLabel" FontSize="26" HorizontalTextAlignment="Center" />
-            <Button Text="NEW GAME" Clicked="OnNewGameClicked" />
+            <Button Text="NEW GAME" Style="{StaticResource GameButton}" Clicked="OnNewGameClicked" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

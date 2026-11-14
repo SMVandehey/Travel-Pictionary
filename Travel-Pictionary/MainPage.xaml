@@ -3,14 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travel_Pictionary.MainPage">
 
-    <Grid Padding="32" RowDefinitions="*,Auto,*">
+    <Grid Padding="32" RowDefinitions="*,Auto,*" BackgroundColor="{StaticResource GamePaper}">
         <VerticalStackLayout Grid.Row="1" Spacing="24" HorizontalOptions="Center">
             <Label Text="Alaric's Drawing Duel"
+                   Style="{StaticResource GameHeading}"
                    FontSize="36"
                    HorizontalTextAlignment="Center"
                    HorizontalOptions="Center"
                    SemanticProperties.HeadingLevel="Level1" />
             <Button Text="NEW GAME"
+                    Style="{StaticResource GameButton}"
                     FontSize="24"
                     Padding="32,16"
                     Clicked="OnNewGameClicked"

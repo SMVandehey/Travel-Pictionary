@@ -4,7 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Travel_Pictionary"
-    Title="Alaric's Drawing Duel">
+    Title="Alaric's Drawing Duel"
+    BackgroundColor="{StaticResource GameBrown}"
+    ForegroundColor="White"
+    TitleColor="White"
+    DisabledColor="#D7CCC8"
+    UnselectedColor="#D7CCC8"
+    NavBarHasShadow="True">
 
     <ShellContent
         Title="Home"

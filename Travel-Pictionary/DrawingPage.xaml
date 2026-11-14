@@ -4,9 +4,16 @@
              xmlns:drawing="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Travel_Pictionary.DrawingPage"
              Title="Draw">
-    <Grid Padding="16" RowDefinitions="Auto,*,Auto">
-        <Label x:Name="TimerLabel" Grid.Row="0" FontSize="24" HorizontalTextAlignment="End" />
-        <drawing:DrawingView x:Name="DrawingCanvas" Grid.Row="1" HeightRequest="420" />
-        <VerticalStackLayout x:Name="GuessButtons" Grid.Row="2" Spacing="8" />
+    <Grid Padding="16" RowDefinitions="Auto,*,Auto" ColumnDefinitions="*,Auto" ColumnSpacing="16" RowSpacing="16" BackgroundColor="{StaticResource GamePaper}">
+        <Label x:Name="TimerLabel" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource GameHeading}" FontSize="24" HorizontalTextAlignment="End" />
+        <drawing:DrawingView x:Name="DrawingCanvas"
+                             Grid.Row="1"
+                             Grid.Column="0"
+                             IsMultiLineModeEnabled="True"
+                             VerticalOptions="Fill" />
+        <VerticalStackLayout x:Name="GuessButtons" Grid.Row="1" Grid.Column="1" WidthRequest="190" Spacing="8" VerticalOptions="Start" />
+        <ScrollView Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalScrollBarVisibility="Never">
+            <HorizontalStackLayout x:Name="ColorsLayout" Spacing="8" Padding="0,8,0,0" />
+        </ScrollView>
     </Grid>
 </ContentPage>

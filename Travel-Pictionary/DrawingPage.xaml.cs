@@ -9,6 +9,44 @@ public partial class DrawingPage : ContentPage
     {
         InitializeComponent();
         Shell.SetBackButtonBehavior(this, new BackButtonBehavior { IsVisible = false });
+        DrawingCanvas.LineWidth = 6;
+        BuildColorButtons();
+    }
+
+    private void BuildColorButtons()
+    {
+        var colors = new[]
+        {
+            Color.FromArgb("#111111"), Color.FromArgb("#E53935"), Color.FromArgb("#FB8C00"),
+            Color.FromArgb("#FDD835"), Color.FromArgb("#43A047"), Color.FromArgb("#00ACC1"),
+            Color.FromArgb("#1E88E5"), Color.FromArgb("#3949AB"), Color.FromArgb("#8E24AA"),
+            Color.FromArgb("#F06292")
+        };
+
+        foreach (var color in colors)
+        {
+            var button = new Button
+            {
+                BackgroundColor = color,
+                WidthRequest = 44,
+                HeightRequest = 44,
+                Padding = 0,
+                CornerRadius = 22,
+                CommandParameter = color
+            };
+            button.Clicked += OnColorButtonClicked;
+            ColorsLayout.Add(button);
+        }
+
+        DrawingCanvas.LineColor = colors[0];
+    }
+
+    private void OnColorButtonClicked(object? sender, EventArgs e)
+    {
+        if (sender is Button { CommandParameter: Color color })
+        {
+            DrawingCanvas.LineColor = color;
+        }
     }
 
     protected override bool OnBackButtonPressed() => true;
@@ -45,7 +83,8 @@ public partial class DrawingPage : ContentPage
             var button = new Button
             {
                 Text = $"{player.Name} got it!",
-                CommandParameter = player.PlayerIndex
+                CommandParameter = player.PlayerIndex,
+                Style = (Style)Application.Current!.Resources["GameButton"]
             };
             button.Clicked += OnGuessButtonClicked;
             GuessButtons.Add(button);

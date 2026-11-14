@@ -39,7 +39,7 @@ public partial class TurnTransitionPage : ContentPage
             return;
         }
 
-        MessageLabel.Text = $"{session.CurrentPlayer.Name}'s turn! Prepare to draw for your life!";
+        MessageLabel.Text = $"{session.CurrentPlayer.Name}'s turn! Prepare to draw!";
 
         for (var seconds = 7; seconds > 0; seconds--)
         {

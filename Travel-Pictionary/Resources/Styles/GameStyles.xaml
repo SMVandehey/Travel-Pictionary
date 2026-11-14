@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="GamePaper">#FFF8E8</Color>
+    <Color x:Key="GameInk">#171717</Color>
+    <Color x:Key="GameBrown">#795548</Color>
+    <Color x:Key="GameOrange">#F36B21</Color>
+    <Color x:Key="GameBlue">#3E9BD6</Color>
+    <Color x:Key="GameGreen">#7CC242</Color>
+    <Color x:Key="GameYellow">#F4C542</Color>
+
+    <Style x:Key="GameButton" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource GameOrange}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="BorderColor" Value="{StaticResource GameInk}" />
+        <Setter Property="BorderWidth" Value="3" />
+        <Setter Property="CornerRadius" Value="14" />
+        <Setter Property="Padding" Value="18,12" />
+    </Style>
+
+    <Style x:Key="GameHeading" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GameInk}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+    <Style x:Key="GameBody" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource GameInk}" />
+    </Style>
+</ResourceDictionary>
