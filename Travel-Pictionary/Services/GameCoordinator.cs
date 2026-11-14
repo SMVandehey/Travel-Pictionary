@@ -70,7 +70,7 @@ public sealed class GameCoordinator
         }
 
         session.CompleteTurn();
-        session.CurrentPlayer.AddPoints(2);
+        session.CurrentPlayer.AddPoints(1);
         session.Players[guessingPlayerIndex].AddPoints(1);
         session.AdvanceToNextTurn();
         return true;
@@ -87,6 +87,11 @@ public sealed class GameCoordinator
         session.CompleteTurn();
         session.AdvanceToNextTurn();
         return true;
+    }
+
+    public void EndGame()
+    {
+        GetCurrentSession().EndGame();
     }
 
     public GameResult GetResult()

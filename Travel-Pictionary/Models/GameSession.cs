@@ -120,6 +120,13 @@ public sealed class GameSession
         }
     }
 
+    public void EndGame()
+    {
+        CurrentRound = TotalRounds + 1;
+        CurrentPrompt = null;
+        Phase = GamePhase.Summary;
+    }
+
     public GameResult CreateResult()
     {
         if (!IsGameComplete)

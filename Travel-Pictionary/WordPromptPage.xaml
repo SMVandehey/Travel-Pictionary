@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Travel_Pictionary.WordPromptPage"
-             Title="Your Word">
+             Title="Prompt">
     <Grid Padding="24" BackgroundColor="{StaticResource GamePaper}">
         <VerticalStackLayout VerticalOptions="Center" Spacing="20">
             <Label x:Name="PromptLabel" Style="{StaticResource GameHeading}" FontSize="32" HorizontalTextAlignment="Center" />
             <Label x:Name="CountdownLabel" Style="{StaticResource GameBody}" FontSize="24" HorizontalTextAlignment="Center" />
+            <Grid ColumnDefinitions="*,*,*">
+                <Button Grid.Column="1" Text="Let's go!" Style="{StaticResource GameButton}" Clicked="OnLetsGoClicked" />
+            </Grid>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>

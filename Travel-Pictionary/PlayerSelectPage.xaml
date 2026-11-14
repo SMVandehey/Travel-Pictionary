@@ -7,9 +7,9 @@
         <VerticalStackLayout Padding="24" Spacing="16">
             <Label Text="How many players are playing?" Style="{StaticResource GameHeading}" FontSize="28" HorizontalTextAlignment="Center" />
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="12">
-                <Button Style="{StaticResource GameButton}" Text="2p" Clicked="OnPlayerCountClicked" CommandParameter="2" />
-                <Button Style="{StaticResource GameButton}" Text="3p" Clicked="OnPlayerCountClicked" CommandParameter="3" />
-                <Button Style="{StaticResource GameButton}" Text="4p" Clicked="OnPlayerCountClicked" CommandParameter="4" />
+                <Button x:Name="PlayerCount2Button" Style="{StaticResource GameButton}" Text="2p" Clicked="OnPlayerCountClicked" CommandParameter="2" />
+                <Button x:Name="PlayerCount3Button" Style="{StaticResource GameButton}" Text="3p" Clicked="OnPlayerCountClicked" CommandParameter="3" />
+                <Button x:Name="PlayerCount4Button" Style="{StaticResource GameButton}" Text="4p" Clicked="OnPlayerCountClicked" CommandParameter="4" />
             </HorizontalStackLayout>
             <Entry x:Name="Player1Entry" Placeholder="Player 1 name" TextChanged="OnNameChanged" />
             <Entry x:Name="Player2Entry" Placeholder="Player 2 name" TextChanged="OnNameChanged" />

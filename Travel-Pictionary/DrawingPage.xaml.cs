@@ -89,6 +89,15 @@ public partial class DrawingPage : ContentPage
             button.Clicked += OnGuessButtonClicked;
             GuessButtons.Add(button);
         }
+
+        var endGameButton = new Button
+        {
+            Text = "END GAME",
+            BackgroundColor = Color.FromArgb("#E53935"),
+            Style = (Style)Application.Current!.Resources["GameButton"]
+        };
+        endGameButton.Clicked += OnEndGameButtonClicked;
+        GuessButtons.Add(endGameButton);
     }
 
     private async void OnGuessButtonClicked(object? sender, EventArgs e)
@@ -105,6 +114,20 @@ public partial class DrawingPage : ContentPage
         {
             GameApp.GameCoordinator.CompleteTurnWithCorrectGuess(playerIndex);
         }
+
+        await NavigateAfterTurnAsync();
+    }
+
+    private async void OnEndGameButtonClicked(object? sender, EventArgs e)
+    {
+        if (Interlocked.CompareExchange(ref turnCompletionState, 1, 0) != 0)
+        {
+            return;
+        }
+
+        SetGuessButtonsEnabled(false);
+        cancellationTokenSource?.Cancel();
+        GameApp.GameCoordinator.EndGame();
 
         await NavigateAfterTurnAsync();
     }

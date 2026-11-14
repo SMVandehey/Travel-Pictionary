@@ -30,14 +30,37 @@ public partial class WordPromptPage : ContentPage
         base.OnDisappearing();
     }
 
+    private async void OnLetsGoClicked(object? sender, EventArgs e)
+    {
+        if (hasNavigated)
+        {
+            return;
+        }
+
+        hasNavigated = true;
+        cancellationTokenSource?.Cancel();
+        await Shell.Current.GoToAsync(nameof(DrawingPage));
+    }
+
     private async Task RunPromptAsync(CancellationToken cancellationToken)
     {
         try
         {
             var prompt = GameApp.GameCoordinator.SelectPrompt();
-            PromptLabel.Text = $"Your word is {prompt}!";
+            PromptLabel.FormattedText = new FormattedString
+            {
+                Spans =
+                {
+                    new Span { Text = "Your picture is " },
+                    new Span
+                    {
+                        Text = $"{prompt}!",
+                        TextColor = (Color)Application.Current!.Resources["GameBlue"]
+                    }
+                }
+            };
 
-            for (var seconds = 7; seconds > 0; seconds--)
+            for (var seconds = 15; seconds > 0; seconds--)
             {
                 CountdownLabel.Text = seconds.ToString();
                 await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);

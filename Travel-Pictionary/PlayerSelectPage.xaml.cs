@@ -31,6 +31,7 @@ public partial class PlayerSelectPage : ContentPage
             Player4Entry.IsVisible = playerCount >= 4;
         }
 
+        UpdatePlayerCountButtons();
         UpdateReadyState();
     }
 
@@ -44,6 +45,7 @@ public partial class PlayerSelectPage : ContentPage
         playerCount = count;
         Player3Entry.IsVisible = count >= 3;
         Player4Entry.IsVisible = count >= 4;
+        UpdatePlayerCountButtons();
         UpdateReadyState();
     }
 
@@ -90,6 +92,23 @@ public partial class PlayerSelectPage : ContentPage
             .ToArray();
 
         ReadyButton.IsEnabled = AreNamesValid(names);
+    }
+
+    private void UpdatePlayerCountButtons()
+    {
+        var selectedColor = (Color)Application.Current!.Resources["GameBlue"];
+        var unselectedColor = (Color)Application.Current.Resources["GameOrange"];
+
+        foreach (var (button, count) in new[]
+        {
+            (PlayerCount2Button, 2),
+            (PlayerCount3Button, 3),
+            (PlayerCount4Button, 4)
+        })
+        {
+            button.BackgroundColor = playerCount == count ? selectedColor : unselectedColor;
+            button.BorderWidth = playerCount == count ? 5 : 3;
+        }
     }
 
     private IReadOnlyList<Entry> GetEntries()
